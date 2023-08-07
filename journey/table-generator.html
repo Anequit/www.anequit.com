@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Table Generator</title>
+        <script type="text/javascript" src="../js/table-generator.js"></script>
+        <link rel="stylesheet" href="../css/table-generator.css">
+    </head>
+    <body>
+        <h1>Multiplication Table Generator</h1>
+        <form method="get">
+            <label for="depth">Depth:</label>
+            <input id="depth"
+                type="number"
+                name="depth"
+                required
+                min="1"
+                max="100"
+                value="12">
+            <input type="submit" id="generate" value="Generate" />
+        </form>
+        <pre id="table"></pre>
+    </body>
+</html>

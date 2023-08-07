@@ -25,7 +25,7 @@ window.onload = function () {
         } else {
             window.location = window.location.href.split('?')[0];
         }
-        
+
     }
 }
 

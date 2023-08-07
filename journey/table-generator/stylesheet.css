@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    text-align: center;
+}
+
+h1, label {
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    text-align: left;
+}
+
+pre {
+    line-height: 30px;
+}

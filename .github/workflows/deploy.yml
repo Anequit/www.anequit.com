@@ -26,12 +26,12 @@ jobs:
       with:
         node-version: 18
       run: | 
-      ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
-      cd ${{ secrets.WORK_DIR }} 
-      git checkout ${{ secrets.MAIN_BRANCH }}
-      git pull
-      bash build.sh
-      exit
+        ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
+        cd ${{ secrets.WORK_DIR }} 
+        git checkout ${{ secrets.MAIN_BRANCH }}
+        git pull
+        bash build.sh
+        exit
 
     - name: cleanup
       run: rm -rf ~/.ssh

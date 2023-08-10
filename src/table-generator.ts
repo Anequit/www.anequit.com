@@ -1,9 +1,9 @@
-let table;
-let depth;
+let table: HTMLPreElement;
+let depth: HTMLInputElement;
 
 window.onload = function () {
-    table = document.getElementById("table");
-    depth = document.getElementById("depth");
+    table = document.getElementById("table") as HTMLPreElement;
+    depth = document.getElementById("depth") as HTMLInputElement;
 
     // Execute a function when the user presses a key on the keyboard
     depth.addEventListener("keypress", function (event) {
@@ -12,42 +12,41 @@ window.onload = function () {
             // Cancel the default action, if needed
             event.preventDefault();
             // Trigger the button element with a click
-            document.getElementById("generate").click();
+            (document.getElementById("generate") as HTMLButtonElement).click();
         }
     });
 
-    let depthParameter = getURLParameter("depth");
+    let depthParameter: number | null = getURLParameter("depth");
 
     if (depthParameter != null) {
         if (validateDepth(depthParameter)) {
-            depth.value = depthParameter;
+            depth.value = String(depthParameter);
             updateTable(depthParameter);
         } else {
-            window.location = window.location.href.split('?')[0];
+            window.location.replace(window.location.href.split('?')[0]);
         }
-
     }
 }
 
-function getURLParameter(param) {
+function getURLParameter(param: string) {
     let queryString = window.location.search.substring(1); // remove the "?" character
     let params = queryString.split('&'); // split by "&"
 
     for (let i = 0; i < params.length; i++) {
         let pair = params[i].split('='); // split by "="
         if (pair[0] == param) {
-            return pair[1]; // return the value of the parameter
+            return Number(pair[1]); // return the value of the parameter
         }
     }
 
     return null; // parameter not found
 }
 
-function centerStr(str, maxLength) {
+function centerStr(str: string, maxLength: number) {
     return str.padStart(Math.ceil((str.length + maxLength) / 2), " ").padEnd(maxLength, " ");
 }
 
-function validateDepth(value) {
+function validateDepth(value: number) {
     if (value > Number(depth.max) || value < Number(depth.min)) {
         console.log("false");
         return false;
@@ -56,7 +55,7 @@ function validateDepth(value) {
     return true;
 }
 
-function updateTable(value) {
+function updateTable(value: number) {
     // clear previous table
     table.innerHTML = "";
 

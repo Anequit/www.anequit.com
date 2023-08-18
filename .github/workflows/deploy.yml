@@ -21,7 +21,6 @@ jobs:
         run: npm run build
       - name: Setup Rsync
         uses: GuillaumeFalourd/setup-rsync@v1.1
-        run: rsync --version
       - name: Deploy Website
         uses: easingthemes/ssh-deploy@v4.1.8
         with:

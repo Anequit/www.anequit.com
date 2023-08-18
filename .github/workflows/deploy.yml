@@ -30,9 +30,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          ARGS: --delete -avzr
           SOURCE: dist/
           TARGET: /var/www/html;
-          SCRIPT_BEFORE: |
-            whoami
-            ls -al
+          

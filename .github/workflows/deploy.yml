@@ -21,6 +21,11 @@ jobs:
         run: npm run build
       - name: Setup Rsync
         uses: GuillaumeFalourd/setup-rsync@v1.1
+      - name: install ssh keys
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: Deploy Website
         uses: easingthemes/ssh-deploy@v4.1.8
         with:

@@ -16,12 +16,10 @@ jobs:
         with:
           node-version: 18.x
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Build Website
         run: npm run build
-      - name: Setup Rsync
-        uses: GuillaumeFalourd/setup-rsync@v1.1
-      - name: Install ssh keys
+      - name: Install SSH keys
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
@@ -35,3 +33,6 @@ jobs:
           ARGS: --delete -avzr
           SOURCE: dist/
           TARGET: /var/www/html;
+          SCRIPT_BEFORE: |
+            whoami
+            ls -al

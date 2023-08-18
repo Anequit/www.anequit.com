@@ -22,10 +22,9 @@ jobs:
       - name: Deploy Website
         uses: easingthemes/ssh-deploy@v4.1.8
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_HOST }}
-          source: dist/
-          server: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          remote_path: /var/www/html/
-          args: --delete -avzr
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          ARGS: --delete -avzr
+          SOURCE: dist/
+          TARGET: /var/www/html;

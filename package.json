@@ -1,0 +1,13 @@
+{
+  "name": "www.anequit.com",
+  "version": "1.0.0",
+  "description": "Just my website",
+  "author": "Anequit",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "typescript": "^5.1.6"
+  }
+}

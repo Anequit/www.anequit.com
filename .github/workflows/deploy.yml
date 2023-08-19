@@ -2,9 +2,8 @@ name: Deploy Website
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
   deploy:
@@ -26,3 +25,5 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
       - name: Deploy Website
         run: rsync -rlgoDzvc dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.OUTPUT_DIR }}  
+      - name: Cleanup SSH
+        run: rm -rf ~/.ssh

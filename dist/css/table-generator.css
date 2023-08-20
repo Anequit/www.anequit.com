@@ -5,6 +5,7 @@
 h1,
 label {
     font-family: sans-serif;
+    color: #F8F9FA;
 }
 
 input {
@@ -12,5 +13,18 @@ input {
 }
 
 pre {
+    padding: 10px;
     line-height: 30px;
+    color: #F8F9FA;
+}
+.box {
+    background-color: #343A40;
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+body {
+    background-color: #212529;
 }

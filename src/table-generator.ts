@@ -25,6 +25,9 @@ window.onload = function () {
         } else {
             window.location.replace(window.location.href.split('?')[0]);
         }
+    } else {
+        depth.value = "12";
+        updateTable(12);
     }
 }
 

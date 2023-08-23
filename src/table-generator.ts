@@ -1,8 +1,8 @@
-let table: HTMLPreElement;
+let table: HTMLTableElement;
 let depth: HTMLInputElement;
 
 window.onload = function () {
-    table = document.getElementById("table") as HTMLPreElement;
+    table = document.getElementById("table") as HTMLTableElement;
     depth = document.getElementById("depth") as HTMLInputElement;
 
     // Execute a function when the user presses a key on the keyboard
@@ -45,10 +45,6 @@ function getURLParameter(param: string) {
     return null; // parameter not found
 }
 
-function centerStr(str: string, maxLength: number) {
-    return str.padStart(Math.ceil((str.length + maxLength) / 2), " ").padEnd(maxLength, " ");
-}
-
 function validateDepth(value: number) {
     if (value > Number(depth.max) || value < Number(depth.min)) {
         console.log("false");
@@ -59,16 +55,14 @@ function validateDepth(value: number) {
 }
 
 function updateTable(value: number) {
-    // clear previous table
+    // Clear table
     table.innerHTML = "";
 
     for (let i = 1; i <= value; i++) {
-        let line = "";
+        let row: HTMLTableRowElement = table.insertRow(i - 1);
 
         for (let j = 1; j <= value; j++) {
-            line += centerStr((j * i).toString(), 5);
+            row.insertCell(j - 1).innerHTML = (j * i).toString();
         }
-
-        table.textContent += line + "\n";
     }
 }

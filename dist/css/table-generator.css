@@ -12,11 +12,12 @@ input {
     text-align: left;
 }
 
-pre {
+td {
     padding: 10px;
-    line-height: 30px;
+    font-family: monospace;
     color: #F8F9FA;
 }
+
 .box {
     background-color: #343A40;
     border: 1px solid black;

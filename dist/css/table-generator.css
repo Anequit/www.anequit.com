@@ -13,11 +13,11 @@ input {
 }
 
 table {
-    margin: 16px;
+    margin: 1em;
 }
 
 td {
-    padding: 8px;
+    padding: 0.5em;
     font-family: monospace;
     color: #F8F9FA;
 }
@@ -25,8 +25,8 @@ td {
 .box {
     background-color: #343A40;
     border: 1px solid black;
-    padding: 5px;
-    margin-top: 30px;
+    padding: 0.5em;
+    margin-top: 2em;
     display: inline-block;
 }
 
